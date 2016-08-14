@@ -9,7 +9,7 @@ io.on('connection', function(socket){
     console.log("user connected via socket.io")
     socket.on('message', function(message){
         console.log('message received ' + message.text)
-        socket.broadcast.emit('message',message)
+        io.emit('message',message)
     })
     socket.emit('message',{ 
     text:'welcome to chat'})
